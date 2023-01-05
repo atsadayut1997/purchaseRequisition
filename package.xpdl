@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Package xmlns="http://www.wfmc.org/2002/XPDL1.0" xmlns:xpdl="http://www.wfmc.org/2002/XPDL1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Id="purchaseRequisition" Name="Purchase Requisition" xsi:schemaLocation="http://www.wfmc.org/2002/XPDL1.0 http://wfmc.org/standards/docs/TC-1025_schema_10_xpdl.xsd">
+    <PackageHeader>
+        <XPDLVersion>1.0</XPDLVersion>
+        <Vendor/>
+        <Created/>
+    </PackageHeader>
+    <Script Type="text/javascript"/>
+    <Participants>
+        <Participant Id="applicant" Name="Applicant">
+            <ParticipantType Type="ROLE"/>
+        </Participant>
+        <Participant Id="approver" Name="Approver">
+            <ParticipantType Type="ROLE"/>
+        </Participant>
+        <Participant Id="system" Name="System">
+            <ParticipantType Type="ROLE"/>
+        </Participant>
+    </Participants>
+    <Applications>
+        <Application Id="default_application"/>
+    </Applications>
+    <WorkflowProcesses>
+        <WorkflowProcess Id="purchaseRequestProcess" Name="Purchase Request Process">
+            <ProcessHeader DurationUnit="h"/>
+            <DataFields>
+                <DataField Id="status" IsArray="FALSE">
+                    <DataType>
+                        <BasicType Type="STRING"/>
+                    </DataType>
+                </DataField>
+            </DataFields>
+            <Activities>
+                <Activity Id="submitRequest" Name="Submit Request">
+                    <Implementation>
+                        <No/>
+                    </Implementation>
+                    <Performer>applicant</Performer>
+                    <ExtendedAttributes>
+                        <ExtendedAttribute Name="JaWE_GRAPH_PARTICIPANT_ID" Value="applicant"/>
+                        <ExtendedAttribute Name="JaWE_GRAPH_OFFSET" Value="216,22.987503051757812"/>
+                    </ExtendedAttributes>
+                </Activity>
+                <Activity Id="approveRejectRequest" Name="Approve / Reject Request">
+                    <Implementation>
+                        <No/>
+                    </Implementation>
+                    <Performer>approver</Performer>
+                    <ExtendedAttributes>
+                        <ExtendedAttribute Name="JaWE_GRAPH_PARTICIPANT_ID" Value="approver"/>
+                        <ExtendedAttribute Name="JaWE_GRAPH_OFFSET" Value="210,43.987518310546875"/>
+                    </ExtendedAttributes>
+                </Activity>
+                <Activity Id="approve" Name="Approve?">
+                    <Route/>
+                    <Performer>approver</Performer>
+                    <TransitionRestrictions>
+                        <TransitionRestriction>
+                            <Split Type="XOR">
+                                <TransitionRefs>
+                                    <TransitionRef Id="transition3"/>
+                                    <TransitionRef Id="transition4"/>
+                                </TransitionRefs>
+                            </Split>
+                        </TransitionRestriction>
+                    </TransitionRestrictions>
+                    <ExtendedAttributes>
+                        <ExtendedAttribute Name="JaWE_GRAPH_PARTICIPANT_ID" Value="approver"/>
+                        <ExtendedAttribute Name="JaWE_GRAPH_OFFSET" Value="446,47.987518310546875"/>
+                    </ExtendedAttributes>
+                </Activity>
+                <Activity Id="notifyApprove" Name="Notify Approved Request">
+                    <Implementation>
+                        <Tool Id="default_application"/>
+                    </Implementation>
+                    <Performer>system</Performer>
+                    <ExtendedAttributes>
+                        <ExtendedAttribute Name="JaWE_GRAPH_PARTICIPANT_ID" Value="system"/>
+                        <ExtendedAttribute Name="JaWE_GRAPH_OFFSET" Value="411,48"/>
+                    </ExtendedAttributes>
+                </Activity>
+                <Activity Id="notifyReject" Name="Notify Reject Request">
+                    <Implementation>
+                        <Tool Id="default_application"/>
+                    </Implementation>
+                    <Performer>system</Performer>
+                    <ExtendedAttributes>
+                        <ExtendedAttribute Name="JaWE_GRAPH_PARTICIPANT_ID" Value="system"/>
+                        <ExtendedAttribute Name="JaWE_GRAPH_OFFSET" Value="883,57.012481689453125"/>
+                    </ExtendedAttributes>
+                </Activity>
+            </Activities>
+            <Transitions>
+                <Transition From="submitRequest" Id="transition1" To="approveRejectRequest">
+                    <ExtendedAttributes>
+                        <ExtendedAttribute Name="JaWE_GRAPH_TRANSITION_STYLE" Value="NO_ROUTING_ORTHOGONAL"/>
+                    </ExtendedAttributes>
+                </Transition>
+                <Transition From="approveRejectRequest" Id="transition2" To="approve">
+                    <ExtendedAttributes>
+                        <ExtendedAttribute Name="JaWE_GRAPH_TRANSITION_STYLE" Value="NO_ROUTING_ORTHOGONAL"/>
+                    </ExtendedAttributes>
+                </Transition>
+                <Transition From="approve" Id="transition3" Name="approve" To="notifyApprove">
+                    <ExtendedAttributes>
+                        <ExtendedAttribute Name="JaWE_GRAPH_TRANSITION_STYLE" Value="NO_ROUTING_ORTHOGONAL"/>
+                    </ExtendedAttributes>
+                </Transition>
+                <Transition From="approve" Id="transition4" Name="reject" To="notifyReject">
+                    <ExtendedAttributes>
+                        <ExtendedAttribute Name="JaWE_GRAPH_TRANSITION_STYLE" Value="NO_ROUTING_ORTHOGONAL"/>
+                        <ExtendedAttribute Name="JaWE_GRAPH_BREAK_POINTS" Value="orthogonal"/>
+                    </ExtendedAttributes>
+                </Transition>
+            </Transitions>
+            <ExtendedAttributes>
+                <ExtendedAttribute Name="JaWE_GRAPH_WORKFLOW_PARTICIPANT_ORDER" Value="applicant;approver;system"/>
+                <ExtendedAttribute Name="JaWE_GRAPH_START_OF_WORKFLOW" Value="JaWE_GRAPH_PARTICIPANT_ID=applicant,CONNECTING_ACTIVITY_ID=submitRequest,X_OFFSET=80,Y_OFFSET=40,JaWE_GRAPH_TRANSITION_STYLE=NO_ROUTING_ORTHOGONAL,TYPE=START_DEFAULT"/>
+                <ExtendedAttribute Name="JaWE_GRAPH_END_OF_WORKFLOW" Value="JaWE_GRAPH_PARTICIPANT_ID=system,CONNECTING_ACTIVITY_ID=notifyApprove,X_OFFSET=611,Y_OFFSET=60,JaWE_GRAPH_TRANSITION_STYLE=NO_ROUTING_ORTHOGONAL,TYPE=END_DEFAULT"/>
+                <ExtendedAttribute Name="JaWE_GRAPH_END_OF_WORKFLOW" Value="JaWE_GRAPH_PARTICIPANT_ID=system,CONNECTING_ACTIVITY_ID=notifyReject,X_OFFSET=1136,Y_OFFSET=67,JaWE_GRAPH_TRANSITION_STYLE=NO_ROUTING_ORTHOGONAL,TYPE=END_DEFAULT"/>
+            </ExtendedAttributes>
+        </WorkflowProcess>
+    </WorkflowProcesses>
+    <ExtendedAttributes>
+        <ExtendedAttribute Name="EDITING_TOOL" Value="Web Workflow Designer"/>
+        <ExtendedAttribute Name="EDITING_TOOL_VERSION" Value="5.0-pre-alpha"/>
+    </ExtendedAttributes>
+</Package>

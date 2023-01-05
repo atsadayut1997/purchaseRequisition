@@ -1,0 +1,141 @@
+{
+    "categories": [
+        {
+            "className": "org.joget.apps.userview.model.UserviewCategory",
+            "menus": [{
+                "className": "org.joget.apps.userview.lib.HtmlPage",
+                "properties": {
+                    "content": "<div class=\"ui-welcome\"><h1>Apps and Workflow Made Simple<\/h1><p>&nbsp;<\/p><div class=\"icon\" style=\"margin-right: 20px; margin-bottom: 20px; float: left; clear: left\"><img src=\"/jw/images/icon_idea.png\" alt=\"Build apps\" width=\"120\" height=\"85\"/><\/div><div class=\"message\"><h3>Build apps, not just processes!<\/h3><p>Create full-fledged apps with support for data records management.<\/p><\/div><p>&nbsp;<\/p><div class=\"icon\" style=\"margin-right: 20px; margin-bottom: 20px; float: left; clear: left\"><img src=\"/jw/images/icon_rocket.png\" alt=\"Increased efficiency\" width=\"120\" height=\"85\"/><\/div><div class=\"message\"><h3>Increased Efficiency and Productivity<\/h3><p>Faster and more consistent completion of manual processes, and with minimal errors.<\/p><\/div><p>&nbsp;<\/p><div class=\"icon\" style=\"margin-right: 20px; margin-bottom: 20px; float: left; clear: left\"><img src=\"/jw/images/icon_cost.png\" alt=\"Lowered cost\" width=\"120\" height=\"85\"/><\/div><div class=\"message\"><h3>Lowered Cost<\/h3><p>Employees can be guided through complex procedures, hence reducing the cost of training.<\/p><\/div><\/div>",
+                    "customId": "welcome",
+                    "id": "3B6F25A638EF40FFAD3C5DAAC41BA98F",
+                    "label": "Welcome"
+                }
+            }],
+            "properties": {
+                "id": "category-EE74E4F4426241BD9BC3BC73B1D24AC7",
+                "label": "<i class='fa fa-home'><\/i> Home"
+            }
+        },
+        {
+            "className": "org.joget.apps.userview.model.UserviewCategory",
+            "menus": [
+                {
+                    "className": "org.joget.apps.userview.lib.RunProcess",
+                    "properties": {
+                        "actionAfterSaved": "",
+                        "customId": "",
+                        "enableOffline": "",
+                        "fieldPassover": "",
+                        "fieldPassoverMethod": "append",
+                        "id": "A268BB1324A849FF9816C1FA875C6ECC",
+                        "keyName": "",
+                        "label": "Submit New Request",
+                        "messageShowAfterComplete": "",
+                        "processDefId": "purchaseRequestProcess",
+                        "redirectTarget": "",
+                        "redirectUrlAfterComplete": "",
+                        "runProcessDirectly": "Yes",
+                        "runProcessSubmitLabel": "",
+                        "showInPopupDialog": "",
+                        "userviewCacheDuration": "20",
+                        "userviewCacheScope": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.userview.lib.InboxMenu",
+                    "properties": {
+                        "appFilter": "all",
+                        "buttonPosition": "bottomLeft",
+                        "id": "AE515736324643CA9760BCD91373E4A8",
+                        "label": "Inbox",
+                        "rowCount": "false",
+                        "showPopup": "false",
+                        "userviewCacheDuration": "20",
+                        "userviewCacheScope": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.userview.lib.DataListMenu",
+                    "properties": {
+                        "buttonPosition": "bottomLeft",
+                        "cacheAllLinks": "",
+                        "cacheListAction": "",
+                        "checkboxPosition": "left",
+                        "customFooter": "",
+                        "customHeader": "",
+                        "customId": "",
+                        "datalistId": "requestList",
+                        "enableOffline": "",
+                        "id": "EBDDE0013E6D4925BA61062944044636",
+                        "keyName": "",
+                        "label": "List All",
+                        "rowCount": "",
+                        "selectionType": "multiple",
+                        "userviewCacheDuration": "20",
+                        "userviewCacheScope": ""
+                    }
+                }
+            ],
+            "properties": {
+                "id": "category-E3E60339C7AF4918815A0919C9C8146E",
+                "label": "Purchase Requisition"
+            }
+        }
+    ],
+    "className": "org.joget.apps.userview.model.Userview",
+    "properties": {
+        "description": "",
+        "footerMessage": "Powered by Joget",
+        "id": "purchaseRequisitionPortal",
+        "logoutText": "Logout",
+        "name": "Purchase Requisition Portal",
+        "welcomeMessage": "#date.EEE, d MMM yyyy#"
+    },
+    "setting": {"properties": {
+        "hideThisUserviewInAppCenter": "",
+        "permission": {
+            "className": "",
+            "properties": {}
+        },
+        "tempDisablePermissionChecking": "",
+        "theme": {
+            "className": "org.joget.plugin.enterprise.ProgressiveTheme",
+            "properties": {
+                "accentColor": "BLUE",
+                "buttonColor": "ORANGE",
+                "buttonTextColor": "WHITE",
+                "css": "",
+                "disableHelpGuide": "",
+                "disablePush": "",
+                "disablePwa": "",
+                "displayCategoryLabel": "",
+                "enableResponsiveSwitch": "",
+                "fav_icon": "",
+                "fontColor": "WHITE",
+                "fontControl": "",
+                "homeAttractBanner": "",
+                "homeUrl": "",
+                "horizontal_menu": "",
+                "inbox": "",
+                "js": "",
+                "loginPageBottom": "",
+                "loginPageTop": "",
+                "logo": "",
+                "menuFontColor": "BLACK",
+                "primaryColor": "INDIGO",
+                "profile": "",
+                "removeAssignmentTitle": "",
+                "shortcut": [],
+                "shortcutLinkLabel": "",
+                "subfooter": "",
+                "subheader": "<link href=\"#appResource.datepicker.css#\" rel=\"stylesheet\" media=\"screen\">\r\n<script src=\"#appResource.bootstrap-datepicker-n.js#\"><\/script>\r\n<script src=\"#appResource.bootstrap-datepicker-thai-n.js#\"><\/script>\r\n<script src=\"#appResource.bootstrap-datepicker.th-n.js#\"><\/script>\r\n<script src=\"#appResource.bootstrap-datepicker-thai-for-handsontable.js#\"><\/script>\r\n<style>\r\n    .datepicker,\r\n    .table-condensed {\r\n        right: auto;\r\n    }\r\n<\/style>",
+                "themeScheme": "light",
+                "urlsToCache": "",
+                "userImage": "",
+                "userMenu": []
+            }
+        },
+        "userviewDescription": "",
+        "userview_thumbnail": ""
+    }}
+}
